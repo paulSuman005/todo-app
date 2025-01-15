@@ -1,0 +1,42 @@
+.addTodoWrapper{
+    margin-top: 5rem;
+    width: 30%;
+    background: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+.addTodoWrapper input{
+    width: 60%;
+    border: none;
+    padding: 0.5rem;
+    outline: none;
+    font-size: medium;
+    font-weight: 400;
+}
+
+.addTodoWrapper button{
+    outline: none;
+    width: 20%;
+    padding: 0.45rem;
+    background: #620262;
+    border: none;
+    color: white;
+    border-radius: 0.3rem;
+    font-size: medium;
+}
+
+.addTodoWrapper button:hover{
+    cursor: pointer;
+    color: #960696;
+    background: white;
+    border: 1px solid #960696;
+}
+
+.addTodoWrapper input:hover{
+    outline: 1px solid blueviolet;
+    border-radius: 0.2rem;
+}

@@ -1,0 +1,8 @@
+.todoListWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 4rem;
+    gap: 3rem;
+}

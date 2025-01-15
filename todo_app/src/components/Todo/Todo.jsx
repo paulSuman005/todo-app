@@ -1,5 +1,5 @@
 import "./todo.css"
-function Todo({todoData, changeStatus, todoStatus}) {
+function Todo({todoData, changeStatus, todoStatus, removeTodo, id}) {
     function handleStatus() {
         (todoStatus == "pending")? changeStatus("completed") : changeStatus("pending");
     }
@@ -10,7 +10,7 @@ function Todo({todoData, changeStatus, todoStatus}) {
             <p>Status: {todoStatus}</p>
             <div className="btnContainer">
                 <button onClick={handleStatus}>Update Status</button>
-                <button>Remove</button>
+                <button onClick={() => removeTodo(id)}>Remove</button>
             </div>
         </div>
     )

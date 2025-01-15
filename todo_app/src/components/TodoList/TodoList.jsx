@@ -10,6 +10,7 @@ function TodoList({list, updateList}) {
                                                     key={todo.id} 
                                                     todoData={todo} 
                                                     todoStatus={todo.status}
+                                                    id={todo.id}
                                                     changeStatus={(finish) => {
                                                         const updatedList = list.map((t) => {
                                                             if(t.id == todo.id){
@@ -18,6 +19,11 @@ function TodoList({list, updateList}) {
                                                             return t;
                                                         })
 
+                                                        updateList(updatedList);
+                                                    }}
+
+                                                    removeTodo={(todoId) => {
+                                                        const updatedList = list.filter(t => t.id != todoId);
                                                         updateList(updatedList);
                                                     }}
                                                     

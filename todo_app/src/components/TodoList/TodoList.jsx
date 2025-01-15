@@ -2,15 +2,7 @@ import { useState } from "react";
 import Todo from "../Todo/Todo";
 import "./todoList.css";
 
-function TodoList() {
-    const [list, setList] = useState([
-        {id: 1, todoData: "todo 1"},
-        {id: 2, todoData: "todo 2"},
-        {id: 3, todoData: "todo 1"},
-        {id: 4, todoData: "todo 2"},
-        {id: 5, todoData: "todo 1"},
-        {id: 6, todoData: "todo 2"}
-    ])
+function TodoList({list}) {
 
     return (
         <div className="todoListWrapper">

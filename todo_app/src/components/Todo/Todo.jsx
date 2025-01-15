@@ -3,7 +3,7 @@ function Todo({todoData}) {
     return (
         <div className="todoWrapper">
             <h3>{todoData.id}. {todoData.todoData}</h3>
-            <p>Status Pending</p>
+            <p>Status: {todoData.status}</p>
             <div className="btnContainer">
                 <button>Update Status</button>
                 <button>Remove</button>

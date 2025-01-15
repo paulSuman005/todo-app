@@ -12,7 +12,7 @@ function App() {
   return (
     <div className='mainContainer'>
       <AddTodo updateList={(todo) => setList([...list, {id: list.length+1, status: "pending", todoData: todo}])}/>
-      <TodoList list={list}/>
+      <TodoList list={list} updateList={setList} />
     </div>
   )
 }

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    gap: 1.5rem;
+    gap: 1rem;
     background: #0a0832;
     padding: 1.5rem 1rem;
     color: white;
@@ -29,10 +29,53 @@
     font-weight: 400;
     border-radius: 0.3rem;
     cursor: pointer;
+    border: 1px solid #442cdf;
 }
 
-.btnContainer button:hover{
+/* .btnContainer button:hover{
     background: white;
     color: #442cdf;
+    border: 1px solid blueviolet;
+} */
+
+.headingContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.headingContainer button{
+    background: #3F28CC;
+    border: none;
+    color: white;
+    width: 4rem;
+    padding: 0.3rem 0;
+    font-size: medium;
+    font-weight: 500;
+    border-radius: 0.2rem;
+    border: 1px solid #442cdf;
+    cursor: pointer;
+}
+
+/* .headingContainer button:hover{
+    background: white;
+    color: #442cdf;
+    border: 1px solid blueviolet;
+} */
+
+button:hover{
+    background: white;
+    color: #442cdf;
+    border: 1px solid blueviolet;
+}
+
+.editText{
+    outline: none;
+    border: none;
+    padding: 0.2rem;
+    font-size: medium;
+    width: 70%;
+    border-radius: 0.2rem;
     border: 1px solid blueviolet;
 }

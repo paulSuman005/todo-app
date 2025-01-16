@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Todo from "../Todo/Todo";
 import "./todoList.css";
+import todoContext from "../context/todoContext";
 
-function TodoList({list, updateList}) {
+function TodoList() {
+    const {list, setList} = useContext(todoContext);
 
     return (
         <div className="todoListWrapper">
@@ -19,12 +21,26 @@ function TodoList({list, updateList}) {
                                                             return t;
                                                         })
 
-                                                        updateList(updatedList);
+                                                        setList(updatedList);
                                                     }}
 
-                                                    removeTodo={(todoId) => {
-                                                        const updatedList = list.filter(t => t.id != todoId);
-                                                        updateList(updatedList);
+                                                    removeTodo={() => {
+                                                        const updatedList = list.filter(t => t.id != todo.id);
+                                                        const newList = updatedList.map((t, index) => ({
+                                                            ...t, id: index+1
+                                                        }))
+                                                        setList(newList);
+                                                    }}
+
+                                                    editTodo={(data) => {
+                                                        const updatedList = list.map((t) => {
+                                                            if(t.id == todo.id){
+                                                                t.todoData=data;
+                                                            }
+                                                            return t;
+                                                        })
+
+                                                        setList(updatedList);
                                                     }}
                                                     
                                                 />))}

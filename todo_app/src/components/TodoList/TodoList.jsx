@@ -4,8 +4,34 @@ import "./todoList.css";
 import todoContext from "../context/todoContext";
 
 
-function TodoList({list, updateList}) {
-    
+function TodoList() {
+    const {list, setList} = useContext(todoContext);
+
+    function onChangeStatus(todo, finish){
+        const updatedList = list.map((t) => {
+            if(t.id == todo.id){
+                t.status = finish;
+            }
+            return t;
+        })
+        setList(updatedList);
+    }
+    function onRemoveTodo(todo){
+        const updatedList = list.filter(t => t.id != todo.id);
+        const newList = updatedList.map((t, index) => ({
+            ...t, id: index+1
+        }))
+        setList(newList);
+    }
+    function onEditTodo(todo, data) {
+        const updatedList = list.map((t) => {
+            if(t.id == todo.id){
+                t.todoData=data;
+            }
+            return t;
+        })
+        setList(updatedList);
+    }
 
     return (
         <div className="todoListWrapper">

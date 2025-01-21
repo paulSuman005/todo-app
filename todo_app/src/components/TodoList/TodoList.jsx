@@ -3,38 +3,9 @@ import Todo from "../Todo/Todo";
 import "./todoList.css";
 import todoContext from "../context/todoContext";
 
-function TodoList() {
-    const {list, setList} = useContext(todoContext);
 
-    function onChangeStatus(todo, finish){
-        const updatedList = list.map((t) => {
-            if(t.id == todo.id){
-                t.status = finish;
-            }
-            return t;
-        })
-
-        setList(updatedList);
-    }
-
-    function onRemoveTodo(todo){
-        const updatedList = list.filter(t => t.id != todo.id);
-        const newList = updatedList.map((t, index) => ({
-            ...t, id: index+1
-        }))
-        setList(newList);
-    }
-
-    function onEditTodo(todo, data) {
-        const updatedList = list.map((t) => {
-            if(t.id == todo.id){
-                t.todoData=data;
-            }
-            return t;
-        })
-
-        setList(updatedList);
-    }
+function TodoList({list, updateList}) {
+    
 
     return (
         <div className="todoListWrapper">
@@ -45,8 +16,7 @@ function TodoList() {
                                                     id={todo.id}
                                                     changeStatus={(finish) => onChangeStatus(todo, finish)}
                                                     removeTodo={() => onRemoveTodo(todo)}
-                                                    editTodo={(data) => onEditTodo(todo, data)}
-                                                    
+                                                    editTodo={(data) => onEditTodo(todo, data)}                                                    
                                                 />))}
         </div>
     )

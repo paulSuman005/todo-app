@@ -2,40 +2,29 @@ import { useContext } from "react";
 import Todo from "../Todo/Todo";
 import "./todoList.css";
 import todoContext from "../context/todoContext";
+import DispatchContext from "../context/DispatchContext";
 
 
 function TodoList() {
-    const {list, setList} = useContext(todoContext);
+    const {list} = useContext(todoContext);
+    const {dispatch} = useContext(DispatchContext);
 
     function onChangeStatus(todo, finish){
-        const updatedList = list.map((t) => {
-            if(t.id == todo.id){
-                t.status = finish;
-            }
-            return t;
-        })
-        setList(updatedList);
+        dispatch({type: "update_status", payload: {
+            todo: todo,
+            finish: finish
+        }})
     }
     function onRemoveTodo(todo){
-        const updatedList = list.filter(t => t.id != todo.id);
-        const newList = updatedList.map((t, index) => ({
-            ...t, id: index+1
-        }))
-        setList(newList);
+        dispatch({type: "remove_todo", payload: {todo: todo}})
     }
     function onEditTodo(todo, data) {
-        const updatedList = list.map((t) => {
-            if(t.id == todo.id){
-                t.todoData=data;
-            }
-            return t;
-        })
-        setList(updatedList);
+        dispatch({type: "edit_todo", payload: {todo: todo, todoText: data}})
     }
 
     return (
         <div className="todoListWrapper">
-            {list.length > 0 && list.map((todo) => (<Todo 
+            {list && list.length > 0 && list.map((todo) => (<Todo 
                                                     key={todo.id} 
                                                     todoData={todo} 
                                                     todoStatus={todo.status}
